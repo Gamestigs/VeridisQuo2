@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrôle Bluetooth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .send {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .send:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contrôle Bluetooth</h1>
+    <button class="send" onclick="sendBluetoothCommand('LED_ON')">Allumer LED</button>
+    <button class="send" onclick="sendBluetoothCommand('LED_OFF')">Éteindre LED</button>
+
+    <script>
+        function sendBluetoothCommand(command) {
+            if (window.Kodular) {
+                window.Kodular.postMessage(command);
+            } else {
+                alert("Kodular WebView non détecté");
+            }
+        }
+    </script>
+</body>
+</html>
