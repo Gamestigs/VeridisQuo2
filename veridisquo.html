@@ -192,8 +192,8 @@
     <button class="send" onclick="sendBluetoothCommand('LED_OFF')">Éteindre LED</button> -->
     <script>
         function sendBluetoothCommand(command) {
-            if (window.Kodular) {
-                window.Kodular.postMessage(command);
+            if (window.AppInventor) {
+                window.AppInventor.setWebViewString(command);
             } else {
                 // alert("Kodular WebView non détecté");
                 console.log(command);
